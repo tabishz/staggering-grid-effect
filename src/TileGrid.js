@@ -57,6 +57,37 @@ function TileGrid() {
     }
   }, [columns, rows]);
 
+  useEffect(() => {
+    let animationInterval;
+
+    const animateTiles = () => {
+      const numTilesToAnimate = Math.floor(tiles.length * 0.05); // 20% of tiles (adjust as needed)
+      const randomIndices = [];
+      while (randomIndices.length < numTilesToAnimate) {
+        const randomIndex = Math.floor(Math.random() * tiles.length);
+        if (!randomIndices.includes(randomIndex)) {
+          randomIndices.push(randomIndex);
+        }
+      }
+
+      randomIndices.forEach(index => {
+        anime({
+          targets: `#tiles > .tile[data-index="${index}"]`, // Target individual tiles
+          opacity: Math.random(),
+          duration: 500, // Animation duration
+          easing: 'easeInOutQuad',
+        });
+      });
+    };
+
+    if (tiles.length > 0) { // Start animation only after tiles are created
+      animateTiles(); // Initial animation
+      animationInterval = setInterval(animateTiles, 2500); // Repeat every 1000ms (1 second)
+    }
+
+    return () => clearInterval(animationInterval); // Clear interval on unmount
+  }, [tiles]);
+
 
   return (
     <div id="tiles" ref={tileWrapper}>

@@ -1,7 +1,10 @@
 {
   "name": "stag-grid-effect",
   "version": "0.1.0",
-  "private": true,
+  "main": "index.js",
+  "repository": "https://github.com/tabishz/staggering-grid-effect.git",
+  "author": "Tabish Zaidi",
+  "license": "GPLv3",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",

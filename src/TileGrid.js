@@ -35,7 +35,7 @@ function TileGrid() {
   }
 
   const createGrid = () => {
-    const size = document.body.clientWidth > 800 ? 100 : 50;
+    const size = document.body.clientWidth > 800 ? 64 : 48;
     setColumns(Math.floor(document.body.clientWidth / size));
     setRows(Math.floor(document.body.clientHeight / size));
     if (tileWrapper.current) {
@@ -61,7 +61,7 @@ function TileGrid() {
     let animationInterval;
 
     const animateTiles = () => {
-      const numTilesToAnimate = Math.floor(tiles.length * 0.05); // 20% of tiles (adjust as needed)
+      const numTilesToAnimate = Math.floor(tiles.length * 0.02);
       const randomIndices = [];
       while (randomIndices.length < numTilesToAnimate) {
         const randomIndex = Math.floor(Math.random() * tiles.length);
@@ -72,7 +72,7 @@ function TileGrid() {
 
       randomIndices.forEach(index => {
         anime({
-          targets: `#tiles > .tile[data-index="${index}"]`, // Target individual tiles
+          targets: `.tile[data-index="${index}"]`, // Target individual tiles
           opacity: Math.random(),
           duration: 500, // Animation duration
           easing: 'easeInOutQuad',

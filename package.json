@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "main": "index.js",
   "repository": "https://github.com/tabishz/staggering-grid-effect.git",
+  "homepage": ".",
   "author": "Tabish Zaidi",
   "license": "GPLv3",
   "dependencies": {

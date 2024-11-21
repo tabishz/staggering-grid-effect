@@ -3,7 +3,7 @@ import TileGrid from './TileGrid';
 
 function App() {
   return (
-    <div className="App">
+    <div className="tiles-wrapper">
       <TileGrid />
     </div>
   );

@@ -53,7 +53,8 @@ function TileGrid() {
     rows = Math.floor(document.body.clientHeight / size);
     wrapper.style.setProperty("--columns", columns);
     wrapper.style.setProperty("--rows", rows);
-    createTiles(columns * rows);
+    const dimension = columns * rows;
+    createTiles(dimension);
   }
 
   window.onresize = () => createGrid();

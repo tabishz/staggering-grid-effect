@@ -15,8 +15,13 @@ function TileGrid() {
   //   'rgb(46,139,87)', // sea green
   // ];
 
-  const handleOnClick = index => {
+  const toggle = () => {
     toggled = !toggled;
+    document.body.classList.toggle("toggled");
+  }
+
+  const handleOnClick = index => {
+    toggle();
     anime({
       targets: '.tile',
       opacity: toggled ? 0.5 : 1,

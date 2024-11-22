@@ -30,8 +30,8 @@
 .tile {
   position: relative;
   opacity: 1;
-  transition: opacity 1s ease-out;
 }
+
 .tile:hover {
   opacity: 0.50;
 }
@@ -42,11 +42,15 @@
   position: absolute;
   inset: 1px;
   opacity: 1;
-  transition: opacity 1s ease-out;
 }
 
 .tile:hover:before {
   opacity: 0.5;
+}
+
+.tile:not(:hover), .tile:not(:hover):before {  /* Target the non-hover state */
+  opacity: 1;
+  transition: opacity 1s ease-out; /* Transition only on mouse out */
 }
 
 body.toggled > #tiles > .tile:hover {

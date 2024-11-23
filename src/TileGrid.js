@@ -34,23 +34,22 @@ function TileGrid() {
     });
   }
 
-  const createGrid = () => {
+  const createGrid = (cols, rows) => {
     const size = document.body.clientWidth > 800 ? 64 : 48;
     setColumns(Math.floor(document.body.clientWidth / size));
     setRows(Math.floor(document.body.clientHeight / size));
     if (tileWrapper.current) {
-      tileWrapper.current.style.setProperty("--columns", columns);
+      tileWrapper.current.style.setProperty("--columns", cols);
       tileWrapper.current.style.setProperty("--rows", rows);
     }
-    const dimension = columns * rows;
+    const dimension = cols * rows;
     const newTiles = Array.from({ length: dimension }, (_, i) => i);
     setTiles(newTiles);
-    // createTiles(dimension);
   }
 
   useEffect(() => {
-    createGrid();
-    const handleResize = () => createGrid();
+    createGrid(columns, rows);
+    const handleResize = () => createGrid(columns, rows);
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);

@@ -1,6 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import anime from 'animejs/lib/anime.es.js';
 
+const MIN_TILE_SIZE = 48;
+const MAX_TILE_SIZE = 72;
+const CUTOFF_WIDTH = 800;
+
 function TileGrid() {
   // const wrapper = document.getElementById('tiles');
   const tileWrapper = useRef(null);
@@ -35,7 +39,7 @@ function TileGrid() {
   }
 
   const createGrid = (cols, rows) => {
-    const size = document.body.clientWidth > 800 ? 64 : 48;
+    const size = document.body.clientWidth > CUTOFF_WIDTH ? MAX_TILE_SIZE : MIN_TILE_SIZE;
     setColumns(Math.floor(document.body.clientWidth / size));
     setRows(Math.floor(document.body.clientHeight / size));
     if (tileWrapper.current) {

@@ -73,10 +73,9 @@ body.toggled > #tiles > .tile:hover {
 }
 
 .title-wrapper {
-  transition: transform 0.5s ease-in-out;
-}
-
-.content-wrapper {
-  transition: transform 0.5s ease-in-out; /* Add transition */
-  transform: translateY(100vh);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure the wrapper takes up full viewport height */
 }
